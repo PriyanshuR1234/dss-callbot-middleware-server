@@ -8,6 +8,11 @@ app.use(cors());
 
 const port = process.env.PORT || 3000; // ✅ required for deployment
 
+
+app.get('/health', (req, res) => {
+    res.status(200).send('OK');
+});
+
 app.post("/call", async (req, res) => {
   const { to } = req.body;
   console.log("☎️ Forwarding call to:", to);
